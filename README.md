@@ -1,6 +1,6 @@
 # AI-Powered Communication Assistant
 
-A comprehensive MERN stack email management system with AI-powered response generation, sentiment analysis, priority-based processing, and automated email sending capabilities. **ALL REQUIREMENTS SATISFIED ✅**
+A comprehensive MERN stack email management system with AI-powered response generation, sentiment analysis, priority-based processing, and automated email sending capabilities.
 
 ## 🚀 Features
 
@@ -174,35 +174,56 @@ The application works immediately with sample data - no configuration required!
 
 ```
 backend/
-├── server.js              # Express server setup
+├── middleware/
+│   └── errorHandler.js             # Centralized error handling
+│
 ├── models/
-│   └── Email.js           # MongoDB email schema
+│   └── Email.js                    # Email schema/model
+│
 ├── routes/
-│   ├── emailRoutes.js     # Email CRUD operations
-│   ├── statsRoutes.js     # Analytics endpoints
-│   └── aiRoutes.js        # AI processing endpoints
+│   ├── aiRoutes.js                 # AI-related API endpoints
+│   ├── emailRoutes.js              # Email fetch/manage endpoints
+│   ├── knowledgeBaseRoutes.js      # Knowledge base CRUD endpoints
+│   └── statsRoutes.js              # Analytics/statistics endpoints
+│
 ├── services/
-│   ├── emailService.js    # Email processing logic
-│   └── aiService.js       # AI integration
-└── package.json
+│   ├── aiService.js                # AI integration logic (LLM calls)
+│   ├── emailSender.js              # Handles email sending
+│   └── emailService.js             # Business logic for email processing
+│
+├── utils/
+│   └── logger.js                   # Logging helper
+│
+├── .env.example                    # Example environment variables
+├── package.json                    # Dependencies & scripts
+└── server.js                       # Main entry point (Express app + DB + routes)
+
 ```
 
 ### Frontend Structure
 
 ```
 frontend/
-├── src/
-│   ├── components/
-│   │   ├── Header.jsx     # Navigation header
-│   │   ├── Dashboard.jsx  # Main dashboard
-│   │   ├── EmailList.jsx  # Email management
-│   │   ├── EmailDetail.jsx # Individual email view
-│   │   └── Analytics.jsx  # Analytics dashboard
-│   ├── services/
-│   │   └── api.js         # API client
-│   ├── App.jsx            # Main application
-│   └── main.jsx           # React entry point
-└── package.json
+├─ src/
+│  ├─ components/
+│  │  ├─ Analytics.jsx       # Dashboard analytics UI
+│  │  ├─ Dashboard.jsx       # Main dashboard component
+│  │  ├─ EmailDetail.jsx     # Email details view
+│  │  ├─ EmailList.jsx       # List of emails
+│  │  ├─ EmailSender.jsx     # Component to send emails
+│  │  └─ Header.jsx          # App header/navigation
+│  ├─ services/
+│  │  └─ api.js              # API calls for backend
+│  ├─ utils/
+│  │  ├─ constants.js        # App constants
+│  │  └─ helpers.js          # Helper functions
+│  ├─ App.css                # Global styles
+│  ├─ App.jsx                # Root React component
+│  ├─ index.css              # Base CSS
+│  └─ main.jsx               # App entry point
+├─ index.html                # HTML template
+├─ package.json              # Project dependencies & scripts
+
 ```
 
 ## 🔧 API Endpoints
@@ -243,17 +264,6 @@ frontend/
 2. Deploy to static hosting (Vercel, Netlify, AWS S3)
 3. Update API URL in environment variables
 
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/amazing-feature`
-3. Commit changes: `git commit -m 'Add amazing feature'`
-4. Push to branch: `git push origin feature/amazing-feature`
-5. Open a Pull Request
-
-## 📝 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
 
 ## 🙏 Acknowledgments
 
